@@ -11,13 +11,14 @@ fn main() {
     loop
     {
         print!("Enter the number: ");
-        let _= stdout().flush();
+        let _= stdout().flush(); // flush to put cursor after last printed char
 
         let mut guess = String::new();
     
         stdin().read_line(&mut guess)
             .expect("failed to readline");
-    
+        
+        // variable shadowing
         let guess: u32 = match guess.trim().parse() {
             Ok(numero) => numero,
             Err(_) => continue,
